@@ -48,7 +48,7 @@ const HomePage: React.FC = () => {
             </div>
             <div className="hidden lg:block">
               <img
-                src="https://images.pexels.com/photos/264537/pexels-photo-264537.jpeg"
+                src="https://images.pexels.com/photos/1435735/pexels-photo-1435735.jpeg"
                 alt="Fresh groceries"
                 className="rounded-2xl shadow-2xl"
               />
