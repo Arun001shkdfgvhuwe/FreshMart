@@ -54,6 +54,29 @@ const CheckoutPage: React.FC = () => {
     // Mock order processing
     setTimeout(() => {
       const orderId = `ORD-${Date.now()}`;
+      
+      // Create order object for admin
+      const newOrder = {
+        id: orderId,
+        items: state.items,
+        total: total,
+        status: 'pending' as const,
+        date: new Date().toISOString().split('T')[0],
+        deliverySlot: formData.deliverySlot,
+        address: {
+          id: '1',
+          type: 'home' as const,
+          street: formData.address,
+          city: formData.city,
+          state: formData.state,
+          zipCode: formData.zipCode,
+          isDefault: true
+        }
+      };
+      
+      // Add order to admin context
+      addOrder(newOrder);
+      
       dispatch({ type: 'CLEAR_CART' });
       setIsProcessing(false);
       navigate(`/order-confirmation/${orderId}`);
